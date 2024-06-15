@@ -1,1 +1,32 @@
-# Welcome to RoWifi Docs
+import Link from "next/link";
+
+## What is RoWifi?
+
+RoWifi is a Roblox-Discord Verification Bot offering a seamless integration between your Roblox group and your Discord server. RoWifi's powerful bind system lets you quickly sync your Roblox ranks and Discord roles. Under the hood, RoWifi uses Rust & GCP to allow it to deliver instant responses for tens of thousands of commands from thousands of servers.
+
+### How to Add it?
+
+Adding RoWifi is sweet and simple. Use this [invite link](https://discord.com/oauth2/authorize?client_id=508968886998269962&scope=bot%20applications.commands&permissions=402738240).
+
+### What to Read Next?
+
+Get familiar with some of the important features that RoWifi provides to make your server management seamless.
+
+<div className="grid grid-cols-2 gap-x-4 gap-y-4">
+    <Link href="/docs/rankbinds" className="flex flex-col space-y-2 border-2 border-slate-600 border-opacity-20 rounded-lg py-2 px-4 hover:bg-gray-900">
+        <span className="text-blue-600 font-semibold">Rankbinds</span>
+        <span className="text-gray-500">Rankbinds are your way to give discord roles to your members based on their group ranks.</span>
+    </Link>
+    <Link href="/docs/groupbinds" className="flex flex-col space-y-2 border-2 border-slate-600 border-opacity-20 rounded-lg py-2 px-4 hover:bg-gray-900">
+        <span className="text-blue-600 font-semibold">Groupbinds</span>
+        <span className="text-gray-500">Groupbinds allow you to collate all the members of your group.</span>
+    </Link>
+    <Link href="/docs/priority" className="flex flex-col space-y-2 border-2 border-slate-600 border-opacity-20 rounded-lg py-2 px-4 hover:bg-gray-900">
+        <span className="text-blue-600 font-semibold">Priority</span>
+        <span className="text-gray-500">Priority is responsible for selecting which template of which bind will be used.</span>
+    </Link>
+    <Link href="/docs/template" className="flex flex-col space-y-2 border-2 border-slate-600 border-opacity-20 rounded-lg py-2 px-4 hover:bg-gray-900">
+        <span className="text-blue-600 font-semibold">Template</span>
+        <span className="text-gray-500">Templates allow you to compose the nicknames of your Discord members.</span>
+    </Link>
+</div>
