@@ -2,12 +2,17 @@
 import { ReactNode, useState } from "react";
 import { DialogTrigger, Button, Modal, Dialog } from "react-aria-components";
 
-export function MobileMenu({ children }: { children?: ReactNode }) {
+interface MobileMenuProps {
+  children?: ReactNode;
+  className?: string; 
+}
+
+export function MobileMenu({ children, className }: MobileMenuProps) {
   const [open, setOpen] = useState(false);
 
   return (
     <DialogTrigger isOpen={open} onOpenChange={setOpen}>
-      <Button className="ml-auto block sm:hidden">
+      <Button className={className}>
         {open ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -41,7 +46,7 @@ export function MobileMenu({ children }: { children?: ReactNode }) {
         )}
       </Button>
       <Modal>
-        <Dialog className="fixed top-16 left-0 right-0 bottom-0 z-50 dark:bg-gray-980 flex flex-col gap-y-6 items-center focus:outline-none">
+        <Dialog className="fixed top-16 left-0 right-0 bottom-0 z-20 dark:bg-gray-980 flex flex-col gap-y-6 items-center focus:outline-none overflow-y-auto">
           {children}
         </Dialog>
       </Modal>

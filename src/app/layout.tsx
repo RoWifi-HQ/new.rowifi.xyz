@@ -27,7 +27,7 @@ export default function RootLayout({
             <div className="ml-auto hidden sm:flex gap-x-8">
               <MenuItems />
             </div>
-            <MobileMenu>
+            <MobileMenu className="ml-auto block sm:hidden">
               <MenuItems />
             </MobileMenu>
           </header>
