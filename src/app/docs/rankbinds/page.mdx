@@ -1,0 +1,30 @@
+# Rankbinds
+
+Rankbinds are a type of bind that allow you to assign Discord roles to your members based on their rank in Roblox Groups.
+
+A rankbind consists of five elements:
+
+- **Group**: The ID of your Roblox Group
+- **Rank**: The ID of the rank in the Roblox Group. This will range from 1-255.
+- **Template**: The composable element that is used to detemine the member's nickname. Learn more about it [here](/docs/template).
+- **Priority**: A number that decides which template out of all the binds will be used. Learn more about it [here](/docs/priority).
+
+### Availability
+
+Rankbinds are available for all servers. You can make as many rankbinds as you want.
+
+### Creating Rankbinds
+
+Rankbinds can be created on the [dashboard](https://dashboard.rowifi.xyz) or using the command `/rankbinds new`.
+
+### Modifying Rankbinds
+
+Rankbinds can be modified individually on the [dashboard](https://dashboard.rowifi.xyz).
+
+### Deleting Rankbinds
+
+Rankbinds can be deleted using the [dashboard](https://dashboard.rowifi.xyz) or by the command `/rankbinds delete`.
+
+### Special Cases
+
+- A rankbind can be created for users not in the group by inputting the Rank as 0. This corresponds to the Guest role on the Roblox Group.
