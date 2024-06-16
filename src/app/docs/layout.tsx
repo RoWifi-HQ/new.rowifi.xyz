@@ -11,7 +11,7 @@ export default function MdxLayout({ children }: { children: React.ReactNode }) {
         <MenuItems />
       </MobileMenu>
 
-      <div className="col-span-3 prose max-w-full my-20 prose-headings:mt-8 prose-headings:font-semibold prose-h1:text-5xl prose-h2:text-4xl prose-h3:text-3xl prose-h4:text-2xl prose-h5:text-xl prose-h6:text-lg prose-headings:text-gray-200 prose-p:text-white prose-a:text-blue-600 prose-a:no-underline">
+      <div className="col-span-3 prose max-w-full my-20 prose-headings:mt-8 prose-headings:font-semibold prose-h1:text-5xl prose-h2:text-4xl prose-h3:text-3xl prose-h4:text-2xl prose-h5:text-xl prose-h6:text-lg prose-headings:text-gray-200 prose-p:text-white prose-a:text-blue-600 prose-a:no-underline prose-li:text-white prose-strong:text-white prose-code:text-white">
         {children}
       </div>
     </div>
