@@ -209,7 +209,7 @@ function MenuItems() {
         </span>
 
         <Link
-          href="/docs/bind/rank"
+          href="/docs/rankbinds"
           className="sm:w-2/3 flex justify-center md:justify-start items-center"
         >
           <svg
@@ -230,7 +230,7 @@ function MenuItems() {
         </Link>
 
         <Link
-          href="/docs/bind/group"
+          href="/docs/groupbinds"
           className="sm:w-2/3 flex justify-center md:justify-start items-center"
         >
           <svg
@@ -251,7 +251,7 @@ function MenuItems() {
         </Link>
 
         <Link
-          href="/docs/bind/custom"
+          href="/docs/custombinds"
           className="sm:w-2/3 flex justify-center md:justify-start items-center"
         >
           <svg
@@ -272,7 +272,7 @@ function MenuItems() {
         </Link>
 
         <Link
-          href="/docs/bind/asset"
+          href="/docs/assetbinds"
           className="sm:w-2/3 flex justify-center md:justify-start items-center"
         >
           <svg
