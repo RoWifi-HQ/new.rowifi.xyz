@@ -1,0 +1,48 @@
+# Denylists
+
+Denylists is a module that allows you to Denylist specific users and members of a group from your server.
+
+## Creating a Denylist
+
+### Adding a Denylist for an User
+
+To create a denylist for an user, run the command `/denylists user`.
+
+It has 2 required arguments.
+
+- **Username**: This is the Roblox Username of the user.
+- **Reason**: This is the reason for the Denylist.
+
+### Adding a Denylist for a Group
+
+To create a denylist for an user, run the command `/denylists group`.
+
+It has 2 required arguments:
+
+- **Group Id**: This s is the Id of the Roblox Group.
+- **Reason**: This is the reason for the Denylist.
+
+### Creating a Custom Denylist
+
+To create a custom denylist, run the command `/denylists custom`.
+
+It has 1 required argument:
+
+- **Code**: The code that evaluates to `true` or `false` based on the user.
+
+### Writing the Code Argument
+
+The syntax that custom denylists use is modelled after Lua. It uses the same structure as custombinds. Learn more about the code
+argument [here](/docs/custombinds#writing-the-code-argument).
+
+## Viewing your Denylists
+
+To view all your denylists, run the command `/denylists view`. Here you will also find the ID for each Denylist.
+
+## Deleting a Denylist
+
+To delete a single denylist, run the `/denylists delete` command.
+
+It has 1 required argument:
+
+- **ID**: The ID the bot created when the denylist was made
