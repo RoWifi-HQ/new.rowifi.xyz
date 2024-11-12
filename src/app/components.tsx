@@ -1,55 +1,64 @@
-"use client";
-import { ReactNode, useState } from "react";
-import { DialogTrigger, Button, Modal, Dialog } from "react-aria-components";
+"use client"
 
-interface MobileMenuProps {
-  children?: ReactNode;
-  className?: string; 
-}
+import { AnimatePresence, motion } from "framer-motion";
+import { ArrowRight, X, Menu } from "lucide-react";
+import { useState } from "react";
+import { Button } from "react-aria-components";
+import Link from "next/link";
+import Image from "next/image";
 
-export function MobileMenu({ children, className }: MobileMenuProps) {
-  const [open, setOpen] = useState(false);
+export function Header() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <DialogTrigger isOpen={open} onOpenChange={setOpen}>
-      <Button className={className}>
-        {open ? (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="w-5 h-5 text-gray-400"
+    <>
+      <header className="container mx-auto px-4 py-6 flex justify-between items-center">
+        <Link href="/" className="flex items-center gap-x-2">
+          <Image src="/logo.png" alt="RoWifi" width={48} height={48} />
+          <h1 className="text-2xl font-bold">RoWifi</h1>
+        </Link>
+        <nav className="hidden md:flex space-x-6">
+          <Link href="/docs" className="text-gray-300 hover:text-white transition-colors">Docs</Link>
+          <Link href="/support" className="text-gray-300 hover:text-white transition-colors">Support</Link>
+          <Link href="/blog" className="text-gray-300 hover:text-white transition-colors">Blog</Link>
+          <Link href="/dashboard" className="text-gray-300 hover:text-white transition-colors">Dashboard</Link>
+        </nav>
+        <div className="flex items-center space-x-4">
+          <Button className="bg-blue-600 hover:bg-blue-700 text-white hidden md:flex md:items-center px-4 py-3 rounded-md">
+            Add to Discord
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </Button>
+          <button
+            className="md:hidden text-white"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle mobile menu"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M6 18 18 6M6 6l12 12"
-            />
-          </svg>
-        ) : (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="w-5 h-5 text-gray-400"
+            {isMobileMenuOpen ? <X /> : <Menu />}
+          </button>
+        </div>
+      </header>
+
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="md:hidden bg-gray-900 py-4"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-            />
-          </svg>
+            <nav className="container mx-auto px-4 flex flex-col space-y-4">
+              <Link href="/docs" className="text-gray-300 hover:text-white transition-colors">Docs</Link>
+              <Link href="/support" className="text-gray-300 hover:text-white transition-colors">Support</Link>
+              <Link href="/blog" className="text-gray-300 hover:text-white transition-colors">Blog</Link>
+              <Link href="/dashboard" className="text-gray-300 hover:text-white transition-colors">Dashboard</Link>
+              <Button className="bg-blue-600 hover:bg-blue-700 text-white w-full">
+                Add to Discord
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </nav>
+          </motion.div>
         )}
-      </Button>
-      <Modal>
-        <Dialog className="fixed top-16 left-0 right-0 bottom-0 z-20 dark:bg-gray-980 flex flex-col gap-y-6 items-center focus:outline-none overflow-y-auto">
-          {children}
-        </Dialog>
-      </Modal>
-    </DialogTrigger>
-  );
+      </AnimatePresence>
+    </>
+  )
 }

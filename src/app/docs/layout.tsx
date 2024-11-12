@@ -1,18 +1,32 @@
+"use client"
+
+import { Menu, X } from "lucide-react";
 import Link from "next/link";
-import { MobileMenu } from "../components";
+import { useState } from "react";
 
 export default function MdxLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="grid grid-cols-4 container">
-      <div className="sm:col-span-1 hidden sm:block">
-        <MenuItems />
-      </div>
-      <MobileMenu className="block sm:hidden fixed z-50 right-8 bottom-8 bg-gray-900 rounded-full p-4">
-        <MenuItems />
-      </MobileMenu>
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-      <div className="col-span-3 prose max-w-full my-20 prose-headings:mt-8 prose-headings:font-semibold prose-h1:text-5xl prose-h2:text-4xl prose-h3:text-3xl prose-h4:text-2xl prose-h5:text-xl prose-h6:text-lg prose-headings:text-gray-200 prose-p:text-white prose-a:text-blue-600 prose-a:no-underline prose-li:text-white prose-strong:text-white prose-code:text-white">
-        {children}
+  return (
+    <div className="container mx-auto px-4">
+      <div className="lg:hidden flex justify-between items-center py-4">
+        <Link href="/docs/" className="text-2xl font-bold">Docs</Link>
+        <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="p-2">
+          <Menu className="h-6 w-6" />
+        </button>
+      </div>
+      <div className="lg:grid lg:grid-cols-4 lg:gap-8">
+        <div className={`lg:col-span-1 ${isMenuOpen ? 'block' : 'hidden'} lg:block fixed lg:static inset-0 bg-black lg:bg-transparent z-50 overflow-y-auto`}>
+          <div className="flex justify-end p-4 lg:hidden">
+            <button onClick={() => setIsMenuOpen(false)} className="text-white">
+              <X className="h-6 w-6" />
+            </button>
+          </div>
+          <MenuItems />
+        </div>
+        <div className="lg:col-span-3 prose max-w-full my-8 lg:my-20 prose-headings:mt-8 prose-headings:font-semibold prose-h1:text-4xl lg:prose-h1:text-5xl prose-h2:text-3xl lg:prose-h2:text-4xl prose-h3:text-2xl lg:prose-h3:text-3xl prose-h4:text-xl lg:prose-h4:text-2xl prose-h5:text-lg lg:prose-h5:text-xl prose-h6:text-base lg:prose-h6:text-lg prose-headings:text-gray-200 prose-p:text-white prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline prose-li:text-white prose-strong:text-white prose-code:text-white">
+          {children}
+        </div>
       </div>
     </div>
   );
@@ -24,7 +38,7 @@ function MenuItems() {
       <section className="flex flex-col px-4 space-y-4 items-center sm:items-start mt-8">
         <Link
           href="/docs/"
-          className="sm:w-2/3 flex justify-start items-center"
+          className="w-full lg:w-2/3 flex justify-center lg:justify-start items-center hover:text-gray-400"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -46,13 +60,13 @@ function MenuItems() {
       </section>
 
       <section className="flex flex-col px-4 space-y-4 items-center sm:items-start">
-        <span className="uppercase tracking-widest text-gray-400 opacity-80 text-sm pt-6 sm:w-2/3">
+        <span className="uppercase tracking-widest text-gray-400 opacity-80 text-sm pt-6 w-full lg:w-2/3 text-center lg:text-left">
           User Guide
         </span>
 
         <Link
           href="/docs/verification"
-          className="sm:w-2/3 flex justify-start items-center"
+          className="w-full lg:w-2/3 flex justify-center lg:justify-start items-center hover:text-gray-400"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -73,7 +87,7 @@ function MenuItems() {
 
         <Link
           href="/docs/backups"
-          className="sm:w-2/3 flex justify-start items-center"
+          className="w-full lg:w-2/3 flex justify-center lg:justify-start items-center hover:text-gray-400"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -94,20 +108,20 @@ function MenuItems() {
 
         <Link
           href="/docs/backups"
-          className="sm:w-2/3 flex justify-start items-center"
+          className="w-full lg:w-2/3 flex justify-center lg:justify-start items-center hover:text-gray-400"
         >
           <span className="ml-2 font-medium">FAQ</span>
         </Link>
       </section>
 
       <section className="flex flex-col px-4 space-y-4 items-center sm:items-start">
-        <span className="uppercase tracking-widest text-gray-400 opacity-80 text-sm pt-6 sm:w-2/3">
+        <span className="uppercase tracking-widest text-gray-400 opacity-80 text-sm pt-6 w-full lg:w-2/3 text-center lg:text-left">
           Server Guide
         </span>
 
         <Link
           href="/docs/installation"
-          className="sm:w-2/3 flex justify-start items-center"
+          className="w-full lg:w-2/3 flex justify-center lg:justify-start items-center hover:text-gray-400"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -128,14 +142,14 @@ function MenuItems() {
 
         <Link
           href="/docs/features"
-          className="sm:w-2/3 flex justify-start items-center"
+          className="w-full lg:w-2/3 flex justify-center lg:justify-start items-center hover:text-gray-400"
         >
           <span className="ml-2 font-medium">Feature Almanac</span>
         </Link>
 
         <Link
           href="/docs/api"
-          className="sm:w-2/3 flex justify-start items-center"
+          className="w-full lg:w-2/3 flex justify-center lg:justify-start items-center hover:text-gray-400"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -156,13 +170,13 @@ function MenuItems() {
       </section>
 
       <section className="flex flex-col px-4 space-y-4 items-center sm:items-start">
-        <span className="uppercase tracking-widest text-gray-400 opacity-80 text-sm pt-6 sm:w-2/3">
+        <span className="uppercase tracking-widest text-gray-400 opacity-80 text-sm pt-6 w-full lg:w-2/3 text-center lg:text-left">
           Concepts
         </span>
 
         <Link
           href="/docs/priority"
-          className="sm:w-2/3 flex justify-center md:justify-start items-center"
+          className="w-full lg:w-2/3 flex justify-center lg:justify-start items-center hover:text-gray-400"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -183,7 +197,7 @@ function MenuItems() {
 
         <Link
           href="/docs/template"
-          className="sm:w-2/3 flex justify-center md:justify-start items-center"
+          className="w-full lg:w-2/3 flex justify-center lg:justify-start items-center hover:text-gray-400"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -204,13 +218,13 @@ function MenuItems() {
       </section>
 
       <section className="flex flex-col px-4 space-y-4 items-center sm:items-start">
-        <span className="uppercase tracking-widest text-gray-400 opacity-80 text-sm pt-6 sm:w-2/3">
+        <span className="uppercase tracking-widest text-gray-400 opacity-80 text-sm pt-6 w-full lg:w-2/3 text-center lg:text-left">
           Binds
         </span>
 
         <Link
           href="/docs/rankbinds"
-          className="sm:w-2/3 flex justify-center md:justify-start items-center"
+          className="w-full lg:w-2/3 flex justify-center lg:justify-start items-center hover:text-gray-400"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -231,7 +245,7 @@ function MenuItems() {
 
         <Link
           href="/docs/groupbinds"
-          className="sm:w-2/3 flex justify-center md:justify-start items-center"
+          className="w-full lg:w-2/3 flex justify-center lg:justify-start items-center hover:text-gray-400"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -252,7 +266,7 @@ function MenuItems() {
 
         <Link
           href="/docs/custombinds"
-          className="sm:w-2/3 flex justify-center md:justify-start items-center"
+          className="w-full lg:w-2/3 flex justify-center lg:justify-start items-center hover:text-gray-400"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -273,7 +287,7 @@ function MenuItems() {
 
         <Link
           href="/docs/assetbinds"
-          className="sm:w-2/3 flex justify-center md:justify-start items-center"
+          className="w-full lg:w-2/3 flex justify-center lg:justify-start items-center hover:text-gray-400"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -294,49 +308,49 @@ function MenuItems() {
       </section>
 
       <section className="flex flex-col px-4 space-y-4 items-center sm:items-start">
-        <span className="uppercase tracking-widest text-gray-400 opacity-80 text-sm pt-6 sm:w-2/3">
+        <span className="uppercase tracking-widest text-gray-400 opacity-80 text-sm pt-6 w-full lg:w-2/3 text-center lg:text-left">
           Tower
         </span>
         <Link
           href="/docs/tower/setup"
-          className="sm:w-2/3 flex justify-center md:justify-start items-center"
+          className="w-full lg:w-2/3 flex justify-center lg:justify-start items-center hover:text-gray-400"
         >
           <span className="ml-2 font-medium">Setup</span>
         </Link>
         <Link
           href="/docs/tower/permissions"
-          className="sm:w-2/3 flex justify-center md:justify-start items-center"
+          className="w-full lg:w-2/3 flex justify-center lg:justify-start items-center hover:text-gray-400"
         >
           <span className="ml-2 font-medium">Permissions</span>
         </Link>
         <Link
           href="/docs/tower/binds"
-          className="sm:w-2/3 flex justify-center md:justify-start items-center"
+          className="w-full lg:w-2/3 flex justify-center lg:justify-start items-center hover:text-gray-400"
         >
           <span className="ml-2 font-medium">XP Binds</span>
         </Link>
         <Link
           href="/docs/tower/commands"
-          className="sm:w-2/3 flex justify-center md:justify-start items-center"
+          className="w-full lg:w-2/3 flex justify-center lg:justify-start items-center hover:text-gray-400"
         >
           <span className="ml-2 font-medium">Commands</span>
         </Link>
         <Link
           href="/docs/tower/commands"
-          className="sm:w-2/3 flex justify-center md:justify-start items-center"
+          className="w-full lg:w-2/3 flex justify-center lg:justify-start items-center hover:text-gray-400"
         >
           <span className="ml-2 font-medium">Events</span>
         </Link>
       </section>
 
       <section className="flex flex-col px-4 space-y-4 items-center sm:items-start mb-8">
-        <span className="uppercase tracking-widest text-gray-400 opacity-80 text-sm pt-6 sm:w-2/3">
+        <span className="uppercase tracking-widest text-gray-400 opacity-80 text-sm pt-6 w-full lg:w-2/3 text-center lg:text-left">
           Other
         </span>
 
         <Link
           href="/docs/analytics"
-          className="sm:w-2/3 flex justify-center md:justify-start items-center"
+          className="w-full lg:w-2/3 flex justify-center lg:justify-start items-center hover:text-gray-400"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -357,7 +371,7 @@ function MenuItems() {
 
         <Link
           href="/docs/denylists"
-          className="sm:w-2/3 flex justify-center md:justify-start items-center"
+          className="w-full lg:w-2/3 flex justify-center lg:justify-start items-center hover:text-gray-400"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -378,7 +392,7 @@ function MenuItems() {
 
         <Link
           href="/docs/events"
-          className="sm:w-2/3 flex justify-center md:justify-start items-center"
+          className="w-full lg:w-2/3 flex justify-center lg:justify-start items-center hover:text-gray-400"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -399,7 +413,7 @@ function MenuItems() {
 
         <Link
           href="/docs/roles"
-          className="sm:w-2/3 flex justify-center md:justify-start items-center"
+          className="w-full lg:w-2/3 flex justify-center lg:justify-start items-center hover:text-gray-400"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -420,7 +434,7 @@ function MenuItems() {
 
         <Link
           href="/docs/roles"
-          className="sm:w-2/3 flex justify-center md:justify-start items-center"
+          className="w-full lg:w-2/3 flex justify-center lg:justify-start items-center hover:text-gray-400"
         >
           <span className="ml-2 font-medium">Auto Detection</span>
         </Link>
