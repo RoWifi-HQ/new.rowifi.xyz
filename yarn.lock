@@ -7994,11 +7994,11 @@ __metadata:
 
 "typescript@patch:typescript@^5.6.3#~builtin<compat/typescript>":
   version: 5.6.3
-  resolution: "typescript@patch:typescript@npm%3A5.6.3#~builtin<compat/typescript>::version=5.6.3&hash=f3b441"
+  resolution: "typescript@patch:typescript@npm%3A5.6.3#~builtin<compat/typescript>::version=5.6.3&hash=8c6c40"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 07ccca7ee736976a2d4e57a6a464927f04cd8af504240d5983ec4944f5f7e1f7576298aeb0e55f74b544ad518c06a268ec048a75783596f5093197d9ccc1debd
+  checksum: cea699a9dcf2a63381d958ca0414dd168b19dec05aa0077e5a2f2adcc07447f21480b0794bd637f174419989daed8a7a114c85a7944fddbfdb648341834f4bb5
   languageName: node
   linkType: hard
 
