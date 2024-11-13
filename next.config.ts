@@ -16,8 +16,4 @@ const withMDX = createMDX({
   extension: /\.mdx?$/,
 });
 
-if (process.env.NODE_ENV === 'development') {
-  await setupDevPlatform();
-}
-
 export default withMDX(nextConfig);
