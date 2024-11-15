@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 
 import "./globals.css";
 import { Header } from "./components";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,23 +30,23 @@ export default function RootLayout({
                 <div>
                   <h4 className="text-white font-semibold mb-4">Product</h4>
                   <ul className="space-y-2">
-                    <li><a href="#features" className="text-gray-400 hover:text-blue-400 transition-colors">Features</a></li>
-                    <li><a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">FAQ</a></li>
+                    <li><Link href="/#features" className="text-gray-400 hover:text-blue-400 transition-colors">Features</Link></li>
+                    <li><Link href="/docs/faq" className="text-gray-400 hover:text-blue-400 transition-colors">FAQ</Link></li>
                   </ul>
                 </div>
                 <div>
                   <h4 className="text-white font-semibold mb-4">Support</h4>
                   <ul className="space-y-2">
-                    <li><a href="/docs" className="text-gray-400 hover:text-blue-400 transition-colors">Help Center</a></li>
-                    <li><a href="/support" className="text-gray-400 hover:text-blue-400 transition-colors">Contact Us</a></li>
+                    <li><Link href="/docs" className="text-gray-400 hover:text-blue-400 transition-colors">Help Center</Link></li>
+                    <li><Link href="/support" className="text-gray-400 hover:text-blue-400 transition-colors">Contact Us</Link></li>
                   </ul>
                 </div>
                 <div>
                   <h4 className="text-white font-semibold mb-4">Legal</h4>
                   <ul className="space-y-2">
-                    <li><a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">Terms of Service</a></li>
-                    <li><a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">Privacy Policy</a></li>
-                    <li><a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">Cookie Policy</a></li>
+                    <li><Link href="#" className="text-gray-400 hover:text-blue-400 transition-colors">Terms of Service</Link></li>
+                    <li><Link href="https://www.iubenda.com/privacy-policy/39859431/full-legal" className="text-gray-400 hover:text-blue-400 transition-colors">Privacy Policy</Link></li>
+                    <li><Link href="https://www.iubenda.com/privacy-policy/39859431/cookie-policy" className="text-gray-400 hover:text-blue-400 transition-colors">Cookie Policy</Link></li>
                   </ul>
                 </div>
               </div>

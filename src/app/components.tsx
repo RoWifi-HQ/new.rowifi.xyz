@@ -21,13 +21,13 @@ export function Header() {
           <Link href="/docs" className="text-gray-300 hover:text-white transition-colors">Docs</Link>
           <Link href="/support" className="text-gray-300 hover:text-white transition-colors">Support</Link>
           <Link href="/blog" className="text-gray-300 hover:text-white transition-colors">Blog</Link>
-          <Link href="/dashboard" className="text-gray-300 hover:text-white transition-colors">Dashboard</Link>
+          <Link href="https://dashboard.rowifi.xyz" className="text-gray-300 hover:text-white transition-colors">Dashboard</Link>
         </nav>
         <div className="flex items-center space-x-4">
-          <Button className="bg-blue-600 hover:bg-blue-700 text-white hidden md:flex md:items-center px-4 py-3 rounded-md">
+          <Link href="https://discord.com/oauth2/authorize?client_id=508968886998269962&scope=bot%20applications.commands&permissions=402738240" className="bg-blue-600 hover:bg-blue-700 text-white hidden md:flex md:items-center px-4 py-3 rounded-md">
             Add to Discord
             <ArrowRight className="ml-2 h-4 w-4" />
-          </Button>
+          </Link>
           <button
             className="md:hidden text-white"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -190,10 +190,10 @@ export function LandingPage() {
           <p className="text-xl mb-8 text-gray-400 max-w-2xl mx-auto">
             RoWifi brings the power of Roblox to your Discord server with advanced features and customizable options.
           </p>
-          <Button className="bg-blue-600 hover:bg-blue-700 text-white text-lg px-8 py-6 inline-flex items-center mx-auto rounded-md">
+          <Link href="/docs" className="bg-blue-600 hover:bg-blue-700 text-white text-lg px-8 py-6 inline-flex items-center mx-auto rounded-md">
             Get Started
             <ArrowRight className="ml-2 h-5 w-5" />
-          </Button>
+          </Link>
         </section>
 
         <section className="py-20 bg-gradient-to-b from-black to-gray-900" id="features">
@@ -277,10 +277,10 @@ export function LandingPage() {
           <p className="text-xl mb-8 text-gray-400 max-w-2xl mx-auto">
             Join thousands of Discord servers already using RoWifi to manage their Roblox integration.
           </p>
-          <Button className="bg-blue-600 hover:bg-blue-700 text-white text-lg px-8 py-6 inline-flex items-center mx-auto">
+          <Link href="https://discord.com/oauth2/authorize?client_id=508968886998269962&scope=bot%20applications.commands&permissions=402738240" className="bg-blue-600 hover:bg-blue-700 text-white text-lg px-8 py-6 inline-flex items-center mx-auto">
             Add RoWifi to Discord
             <ArrowRight className="ml-2 h-5 w-5" />
-          </Button>
+          </Link>
         </section>
       </main>
   )

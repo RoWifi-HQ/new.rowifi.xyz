@@ -23,7 +23,8 @@
     "react": "19.0.0-rc-66855b96-20241106",
     "react-aria-components": "^1.4.1",
     "react-dom": "19.0.0-rc-66855b96-20241106",
-    "remark-gfm": "^4.0.0"
+    "remark-gfm": "^4.0.0",
+    "vercel": "^38.0.0"
   },
   "devDependencies": {
     "@cloudflare/next-on-pages": "^1.13.5",
