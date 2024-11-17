@@ -24,7 +24,7 @@ export default function MDXLayout({ children }: { children: React.ReactNode }) {
           </div>
           <MenuItems />
         </div>
-        <div className="lg:col-span-3 prose max-w-full my-8 lg:my-20 prose-headings:mt-8 prose-headings:font-semibold prose-h1:text-4xl lg:prose-h1:text-5xl prose-h2:text-3xl lg:prose-h2:text-4xl prose-h3:text-2xl lg:prose-h3:text-3xl prose-h4:text-xl lg:prose-h4:text-2xl prose-h5:text-lg lg:prose-h5:text-xl prose-h6:text-base lg:prose-h6:text-lg prose-headings:text-gray-200 prose-p:text-white prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline prose-li:text-white prose-strong:text-white prose-code:text-white">
+        <div className="lg:col-span-3 prose max-w-full my-8 lg:my-20 prose-headings:mt-8 prose-headings:font-semibold prose-h1:text-4xl lg:prose-h1:text-5xl prose-h2:text-3xl lg:prose-h2:text-4xl prose-h3:text-2xl lg:prose-h3:text-3xl prose-h4:text-xl lg:prose-h4:text-2xl prose-h5:text-lg lg:prose-h5:text-xl prose-h6:text-base lg:prose-h6:text-lg prose-headings:text-gray-200 prose-p:text-white prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline prose-li:text-white prose-strong:text-white prose-code:text-white prose-td:text-white">
           {children}
         </div>
       </div>
@@ -110,6 +110,10 @@ function MenuItems() {
           href="/docs/backups"
           className="w-full lg:w-2/3 flex justify-center lg:justify-start items-center hover:text-gray-400"
         >
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+          </svg>
+
           <span className="ml-2 font-medium">FAQ</span>
         </Link>
       </section>
@@ -138,13 +142,6 @@ function MenuItems() {
             ></path>
           </svg>
           <span className="ml-2 font-medium">Adding the Bot</span>
-        </Link>
-
-        <Link
-          href="/docs/features"
-          className="w-full lg:w-2/3 flex justify-center lg:justify-start items-center hover:text-gray-400"
-        >
-          <span className="ml-2 font-medium">Feature Almanac</span>
         </Link>
 
         <Link
@@ -318,12 +315,6 @@ function MenuItems() {
           <span className="ml-2 font-medium">Setup</span>
         </Link>
         <Link
-          href="/docs/tower/permissions"
-          className="w-full lg:w-2/3 flex justify-center lg:justify-start items-center hover:text-gray-400"
-        >
-          <span className="ml-2 font-medium">Permissions</span>
-        </Link>
-        <Link
           href="/docs/tower/binds"
           className="w-full lg:w-2/3 flex justify-center lg:justify-start items-center hover:text-gray-400"
         >
@@ -409,27 +400,6 @@ function MenuItems() {
             ></path>
           </svg>
           <span className="ml-2 font-medium">Events</span>
-        </Link>
-
-        <Link
-          href="/docs/roles"
-          className="w-full lg:w-2/3 flex justify-center lg:justify-start items-center hover:text-gray-400"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={1.25}
-              d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"
-            ></path>
-          </svg>
-          <span className="ml-2 font-medium">Role Permissions</span>
         </Link>
 
         <Link

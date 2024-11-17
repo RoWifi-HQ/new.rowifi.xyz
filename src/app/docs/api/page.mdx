@@ -1,0 +1,121 @@
+# RoWifi API
+
+RoWifi's API is based around a HTTPS/REST API for all operations.
+
+### Base URL
+    
+<div className="overflow-x-auto bg-neutral-900 whitespace-nowrap rounded-md scrollbar relative">
+    <div className="px-3 w-full py-2">
+        https://api.rowifi.xyz
+    </div>
+</div>
+
+RoWifi has different versions of its API. You need to specify which version of the API you would like to use in your request path like `https://api.rowifi.xyz/v{version}`.
+
+### API Versions
+
+| Version | Status       |
+| :-----: | ------------ |
+|  3      | Active       |
+|  2      | Deprecated   |
+|  1      | Removed      |
+
+## Authentication
+
+Authenticating with the RoWifi API can be done only using the API tokens obtained from the Tokens page of the Dashboard. Authentication is performed with the `Authorization` HTTP header in the format `Authorization: Bot TOKEN`
+
+## Rate Limiting
+
+All endpoints currently follow the 5 per second per IP/token rule. This may change in the future and an announcement will be made as such.
+
+
+## Routes
+
+### Get Member
+
+<span class="font-semibold text-sm bg-green-600 py-0.5 px-2 rounded-md mr-2">GET</span> /guilds/\{guild.id\}/members/\{user.id\}
+
+Returns the associated RoUser for a server with the following fields.
+| Field        | Description                                                |
+| :----------: | ---------------------------------------------------------- |
+|  discord_id  | The Discord ID of the user                                 |
+|  roblox_id   | ID of the linked Roblox account for the given `guild_id`   |
+| guild_id     | The ID of the guild                                        |
+
+### Get Discord ID from Roblox ID (Reverse Search)
+
+<span class="font-semibold text-sm bg-green-600 py-0.5 px-2 rounded-md mr-2">GET</span> /guilds/\{guild.id\}/members/roblox/\{roblox_id\}
+
+Returns an array of `discord_id` linked to that particular Roblox account for the given `guild_id`.
+
+**NOTE:** This endpoint will only return the set of Discord IDs from which Reverse Search consent has given. Reverse Search Consent can be given with `/api consent reverse-search`.
+
+### Get Denylist
+
+<span class="font-semibold text-sm bg-green-600 py-0.5 px-2 rounded-md mr-2">GET</span> /guilds/\{guild.id\}/blacklists
+
+Returns an array of denylists for the given guild. Each denylist has the following fields.
+| Field        | Description                                                              |
+| :----------: | ------------------------------------------------------------------------ |
+| id           | The internal ID for the denylist                                        |
+| reason       | The reason set for the denylist                                         |
+| kind         | The type of the denylist (0 - User, 1 - Group)                          |
+| user_id?     | The ID of the Roblox User in the denylist. Present only when kind = 0   |
+| group_id?    | The ID of the Roblox Group in the denylist. Present only when kind = 1 |
+
+### Create denylist
+
+<span class="font-semibold text-sm bg-green-600 py-0.5 px-2 rounded-md mr-2">POST</span> /guilds/\{guild.id\}/denylists
+
+Creates a denylist for the given guild. The following fields are required.
+| Field        | Description                                                                       |
+| :----------: | --------------------------------------------------------------------------------- |
+| reason       | The reason set for the denylist                                                   |
+| kind         | The type of the denylist (0 - User, 1 - Group)                                    |
+| user_id?     | The ID of the Roblox User in the denylist. Must be present only when kind = 0     |
+| group_id?    | The ID of the Roblox Group in the denylist. Must be present only when kind = 1    |
+| code?        | The code for the denylist. Must be present only when kind = 1                     |
+
+### Delete Denylist
+
+<span class="font-semibold text-sm bg-green-600 py-0.5 px-2 rounded-md mr-2">DELETE</span> /guilds/\{guild.id\}/denylists
+
+Deletes denylists from the given guild. It requires an array of `id` in the body (`id` can be obtained from the Get Denylists endpoint).
+
+### Add/Remove XP
+
+<span class="font-semibold text-sm bg-green-600 py-0.5 px-2 rounded-md mr-2">PATCH</span> /guilds/\{guild.id\}/tower/xp/users/\{roblox_id\}
+
+Adds/Removes XP to the given Roblox user. It will also promote or demote the user depending on the XP binds. The following fields are required.
+| Field        | Description                                                                       |
+| :----------: | --------------------------------------------------------------------------------- |
+| xp           | The amount of XP to add or remove                                                 |
+
+### Set XP
+
+<span class="font-semibold text-sm bg-green-600 py-0.5 px-2 rounded-md mr-2">POST</span> /guilds/\{guild.id\}/tower/xp/users/\{roblox_id\}
+
+Sets XP of the given Roblox user. This will override the previous XP and will also promote or demote the user without taking the current rank into consideration. The following fields are required.
+| Field        | Description                                                                       |
+| :----------: | --------------------------------------------------------------------------------- |
+| xp           | The amount of XP to set                                                           |
+
+### Get XP
+
+<span class="font-semibold text-sm bg-green-600 py-0.5 px-2 rounded-md mr-2">GET</span> /guilds/\{guild.id\}/tower/xp/users/\{roblox_id\}
+
+Fetches the XP for the given Roblox user. Returns the following fields.
+| Field        | Description                                                                       |
+| :----------: | --------------------------------------------------------------------------------- |
+| user_id           | The amount of XP to add or remove                                                 |
+
+### Set Rank
+
+<span class="font-semibold text-sm bg-green-600 py-0.5 px-2 rounded-md mr-2">POST</span> /guilds/\{guild.id\}/setrank
+
+Sets the rank of the given Roblox user in the given Roblox group. This has no effect on the XP.
+| Field        | Description                                                                       |
+| :----------: | --------------------------------------------------------------------------------- |
+| user_id      | The ID of the Roblox User                                                         |
+| group_id     | The ID of the Roblox Group                                                        |
+| rank_id      | The ID of the rank in the Roblox Group (1-255)                                    |
