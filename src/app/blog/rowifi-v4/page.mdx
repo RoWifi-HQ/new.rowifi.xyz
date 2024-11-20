@@ -1,0 +1,90 @@
+# Launching V4
+
+This release comes about 18 months after the last update. It includes a whole range of fixes, stability 
+improvements, and key changes designed to enhance usability, streamline management, and modernize the 
+overall experience. From refining permissions with Discord’s integrated tools to reorganizing and simplifying 
+commands, this update represents a significant step forward for RoWifi.
+
+In addition to addressing user feedback, we’ve made technical enhancements to improve reliability, introduced 
+new features like server templates, and updated terminology to align with our commitment to inclusivity. Whether 
+you’re managing a small community or a large server, these changes are designed to make RoWifi more intuitive 
+and effective than ever before.
+
+Let’s dive into the details of what’s new!
+
+### Message Commands are Deleted
+
+To align with Discord's evolving best practices, message commands have been fully removed. By focusing on slash commands, 
+we aim to provide a more modern, user-friendly, and secure interaction system. This change also simplifies command usage, 
+making it easier for users to discover and use features directly within the Discord interface. All sensitive slash commands
+will require Administrator permissions by default. You can edit them by going to Server Settings > Integrations > RoWifi.
+You can learn more about them at [Discord docs](https://support-apps.discord.com/hc/en-us/articles/26501869403159-Command-Permissions).
+
+Slash Commands Use Discord's Integrated Permissions
+We’ve fully adopted Discord’s integrated permissions for slash commands. This change simplifies role-based access management. Server admins can now 
+easily control who can use specific commands without the need for additional configuration within RoWifi.
+
+### Admin and Trainer Roles are Deleted
+
+The Admin and Trainer Roles were used to gate access for commands. However, with the use of the integrated Discord slash command permissions, 
+these roles are no longer needed.
+
+### Unified Bypass Roles
+
+Bypass roles have been consolidated into a single, unified section for better organization. This feature now includes three types of bypass permissions:
+
+All: Prevents the `/update` command from modifying anything.
+Roles: Prevents the `/update` command from modifying roles.
+Nickname: Prevents the `/update` command from modifying nickname.
+
+### /xp view Renamed to /view xp
+
+The /xp view command has been renamed to /view xp. This change ensures that the command operates outside the XP module's 
+restrictive permissions, which govern sensitive commands.
+
+### /settings, /reset, and /botinfo Commands Deleted
+
+These commands have been removed as part of our effort to declutter the command interface. By retiring less frequently used commands, we can focus 
+on improving and supporting the core functionality that matters.
+
+### /xp bind Moved to /xpbinds
+
+The /xp bind command has been relocated to /xpbinds to better organize XP-related commands. This change 
+aims to maintain consistency with the other types of binds.
+
+### Default Template Option for Servers
+
+A new default template is now available for servers. This feature increases the configurability of the nicknaming process. All servers have been set
+to have a default template of `{roblox-username}`.
+
+### Blacklists Renamed to Denylists
+
+We’ve renamed "blacklists" to "denylists" to align with more inclusive and descriptive terminology. This change reflects our commitment 
+to clear and welcoming language throughout the platform.
+
+### Debug Command for Troubleshooting
+We’ve added a new /debug update command to help diagnose potential issues. This tool provides server admins with 
+diagnostic feedback, making it easier to identify and resolve problems quickly that pop up while running the `/update` command.
+
+### Increased Stability for Setrank and XP Commands
+
+The setrank and XP commands have undergone significant stability improvements. These commands now execute more reliably
+ensuring a smoother experience for all users.
+
+### Reverse Search is Freely Available
+
+We've removed the requirement of activating consent for reverse search. By removing this restriction, we’ve made this feature more 
+convenient and universally available for servers for building additonal functionality.
+
+### Custombinds Parsing and Evaluation Improved
+
+The parsing and evaluation systems for custombinds have been enhanced to provide more accurate and efficient performance. This update 
+ensures that the custombind code behave as expected, reducing errors and improving usability.
+
+### Alpha Tier Deprecated
+
+The Alpha Tier has been officially retired. All customers paying for Alpha Tier may stay on the tier without disruption.
+
+### Patreon Deletion Scheduled for March 31, 2025
+
+Support for Patreon will be discontinued on March 31, 2025. We are now requiring all patrons to transition to Lemonsqueezy by the aforementioned date.
