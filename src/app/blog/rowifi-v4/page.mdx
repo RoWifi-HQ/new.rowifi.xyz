@@ -20,7 +20,8 @@ making it easier for users to discover and use features directly within the Disc
 will require Administrator permissions by default. You can edit them by going to Server Settings > Integrations > RoWifi.
 You can learn more about them at [Discord docs](https://support-apps.discord.com/hc/en-us/articles/26501869403159-Command-Permissions).
 
-Slash Commands Use Discord's Integrated Permissions
+###Slash Commands Use Discord's Integrated Permissions
+
 We’ve fully adopted Discord’s integrated permissions for slash commands. This change simplifies role-based access management. Server admins can now 
 easily control who can use specific commands without the need for additional configuration within RoWifi.
 
@@ -37,19 +38,23 @@ Bypass roles have been consolidated into a single, unified section for better or
 - Roles: Prevents the `/update` command from modifying roles.
 - Nickname: Prevents the `/update` command from modifying nickname.
 
-### /xp view Renamed to /view xp
+### Sticky Roles
 
-The /xp view command has been renamed to /view xp. This change ensures that the command operates outside the XP module's 
+Have binded roles that you don't want your users to lose? Mark them sticky and they will never be removed.
+
+### `/xp view` Renamed to `/view xp`
+
+The `/xp view` command has been renamed to `/view xp`. This change ensures that the command operates outside the XP module's 
 restrictive permissions, which govern sensitive commands.
 
-### /settings, /reset, and /botinfo Commands Deleted
+### `/settings`, `/reset`, and `/botinfo` Commands Deleted
 
 These commands have been removed as part of our effort to declutter the command interface. By retiring less frequently used commands, we can focus 
 on improving and supporting the core functionality that matters.
 
-### /xp bind Moved to /xpbinds
+### `/xp bind` Moved to `/xpbinds`
 
-The /xp bind command has been relocated to /xpbinds to better organize XP-related commands. This change 
+The `/xp bind` command has been relocated to `/xpbinds` to better organize XP-related commands. This change 
 aims to maintain consistency with the other types of binds.
 
 ### Default Template Option for Servers
@@ -63,7 +68,7 @@ We’ve renamed "blacklists" to "denylists" to align with more inclusive and des
 to clear and welcoming language throughout the platform.
 
 ### Debug Command for Troubleshooting
-We’ve added a new /debug update command to help diagnose potential issues. This tool provides server admins with 
+We’ve added a new `/debug update` command to help diagnose potential issues. This tool provides server admins with 
 diagnostic feedback, making it easier to identify and resolve problems quickly that pop up while running the `/update` command.
 
 ### Increased Stability for Setrank and XP Commands

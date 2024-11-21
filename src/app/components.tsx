@@ -21,6 +21,7 @@ export function Header() {
           <Link href="/docs" className="text-gray-300 hover:text-white transition-colors">Docs</Link>
           <Link href="/support" className="text-gray-300 hover:text-white transition-colors">Support</Link>
           <Link href="/blog" className="text-gray-300 hover:text-white transition-colors">Blog</Link>
+          <Link href="https://rowifi.lemonsqueezy.com" className="text-gray-300 hover:text-white transition-colors">Premium</Link>
           <Link href="https://dashboard.rowifi.xyz" className="text-gray-300 hover:text-white transition-colors">Dashboard</Link>
         </nav>
         <div className="flex items-center space-x-4">
@@ -47,10 +48,11 @@ export function Header() {
             className="md:hidden bg-gray-900 py-4"
           >
             <nav className="container mx-auto px-4 flex flex-col space-y-4">
-              <Link href="/docs" className="text-gray-300 hover:text-white transition-colors">Docs</Link>
-              <Link href="/support" className="text-gray-300 hover:text-white transition-colors">Support</Link>
-              <Link href="/blog" className="text-gray-300 hover:text-white transition-colors">Blog</Link>
-              <Link href="/dashboard" className="text-gray-300 hover:text-white transition-colors">Dashboard</Link>
+            <Link href="/docs" className="text-gray-300 hover:text-white transition-colors">Docs</Link>
+            <Link href="/support" className="text-gray-300 hover:text-white transition-colors">Support</Link>
+            <Link href="/blog" className="text-gray-300 hover:text-white transition-colors">Blog</Link>
+            <Link href="https://rowifi.lemonsqueezy.com" className="text-gray-300 hover:text-white transition-colors">Premium</Link>
+            <Link href="https://dashboard.rowifi.xyz" className="text-gray-300 hover:text-white transition-colors">Dashboard</Link>
               <Button className="bg-blue-600 hover:bg-blue-700 text-white w-full">
                 Add to Discord
                 <ArrowRight className="ml-2 h-4 w-4" />
