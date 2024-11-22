@@ -53,7 +53,7 @@ export function Header() {
             <Link href="/blog" className="text-gray-300 hover:text-white transition-colors">Blog</Link>
             <Link href="https://rowifi.lemonsqueezy.com" className="text-gray-300 hover:text-white transition-colors">Premium</Link>
             <Link href="https://dashboard.rowifi.xyz" className="text-gray-300 hover:text-white transition-colors">Dashboard</Link>
-              <Button className="bg-blue-600 hover:bg-blue-700 text-white w-full">
+              <Button className="bg-blue-600 hover:bg-blue-700 text-white w-full flex items-center px-4 py-3 rounded-md">
                 Add to Discord
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
