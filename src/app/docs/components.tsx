@@ -107,7 +107,7 @@ function MenuItems() {
         </Link>
 
         <Link
-          href="/docs/backups"
+          href="/docs/faq"
           className="w-full lg:w-2/3 flex justify-center lg:justify-start items-center hover:text-gray-400"
         >
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
