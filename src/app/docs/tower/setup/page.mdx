@@ -6,26 +6,36 @@ Tower is a module designed for interacting with Roblox Open Cloud. It currently 
 
 ## Setup Guide
 
-Configuring Tower requires obtaining a Roblox cookie (.ROBLOSECURITY). Follow the steps below carefully to ensure a successful setup:
+Configuring Tower requires obtaining a Open Cloud Token. Follow the steps below carefully to ensure a successful setup:
 
-### Step 1: Retrieve Your Roblox Cookie
+### Step 1: Retrieve Your Open Cloud Token  
 
-1. **Open an Incognito Window:** Use a private/incognito browser window to prevent security conflicts.
-2. **Log In to Roblox:** Sign in with the Roblox account you want Tower to manage.
-3. **Access Developer Tools:**
-   - Press `Ctrl + Shift + I` (or `Cmd + Option + I` on Mac) to open the Developer Console.
-4. **Locate the Cookie:**
-   - Navigate to the **Application** tab.
-   - Under **Storage**, select **Cookies**.
-   - Find the cookie named `.ROBLOSECURITY` and copy its value.
-5. **Close the Browser Window:** To maintain account security, close the incognito window without logging out.
+1. **Access the Creator Hub**  
+   - Go to the [Creator Hub](https://create.roblox.com/) on the Roblox website.  
+
+2. **Locate the API Token Section**  
+   - Navigate to **Open Cloud** > **API Tokens**.  
+
+3. **Create a New API Key**  
+   - Click on **Create API Key**.  
+   - **Name Your Key:** Enter a name for your key (e.g., "RoWifi Integration").  
+   - **Set Access Permissions:**  
+     - Add the **groups** API system.  
+     - Under **Operations**, select **write**.  
+   - **Set Security Settings:**  
+     - Enter `0.0.0.0/0` in the Security field to allow the API Token to be used from any IP address.  
+     - *(Note: In the future, dedicated RoWifi IPs will be provided and can be added here for improved security.)*  
+   - Click **Save & Generate Key**.  
+
+4. **Copy the Token**  
+   - Copy the API token provided by Roblox. **Keep it secure**, as this token grants access to your account's API functionality.
 
 ---
 
 ### Step 2: Configure Tower on RoWifi Dashboard
 
 1. Open the **Tower Settings** on the [RoWifi Dashboard](https://example.com).
-2. Paste the copied `.ROBLOSECURITY` cookie into the designated input field.
+2. Paste the copied token into the designated input field.
 3. Click **Submit** to finalize the setup.
 
 ---
