@@ -15,29 +15,29 @@
   "dependencies": {
     "@mdx-js/loader": "^3.1.0",
     "@mdx-js/react": "^3.1.0",
-    "@next/mdx": "15.0.3",
+    "@next/mdx": "15.1.2",
     "@types/mdx": "^2.0.13",
-    "framer-motion": "^11.13.1",
-    "lucide-react": "^0.456.0",
-    "next": "15.0.3",
-    "react": "19.0.0-rc-66855b96-20241106",
+    "framer-motion": "^11.15.0",
+    "lucide-react": "^0.469.0",
+    "next": "15.1.2",
+    "react": "19.0.0",
     "react-aria-components": "^1.5.0",
-    "react-dom": "19.0.0-rc-66855b96-20241106",
+    "react-dom": "19.0.0",
     "remark-gfm": "^4.0.0",
     "vercel": "^38.0.0"
   },
   "devDependencies": {
-    "@cloudflare/next-on-pages": "^1.13.6",
+    "@cloudflare/next-on-pages": "^1.13.7",
     "@tailwindcss/typography": "^0.5.15",
-    "@types/node": "^22.10.1",
-    "@types/react": "18.3.1",
-    "@types/react-dom": "18.3.1",
+    "@types/node": "^22.10.2",
+    "@types/react": "19.0.2",
+    "@types/react-dom": "19.0.2",
     "autoprefixer": "^10.4.20",
-    "eslint": "^9.16.0",
-    "eslint-config-next": "15.0.3",
+    "eslint": "^9.17.0",
+    "eslint-config-next": "15.1.2",
     "postcss": "^8.4.49",
-    "tailwindcss": "^3.4.16",
+    "tailwindcss": "^3.4.17",
     "typescript": "^5.7.2"
   },
-  "packageManager": "pnpm@8.7.1+sha512.41bb77121614697152da4e052d003baf6fde633fc9a03786ebcd3fdd45c6d066b4dcb3ee6381a076f08b7beccedcced99d61b8548e1b03093b4292727ebe5ea8"
+  "packageManager": "pnpm@8.7.1"
 }
