@@ -1,0 +1,297 @@
+# Custom Commands
+
+Create interactive Discord slash commands with Roblox integrations using our visual workflow builder.
+
+## Overview
+
+The Custom Commands module empowers you to create tailored Discord slash commands using a visual, node-based workflow builder. This powerful tool allows you to automate interactions between your Discord server and Roblox games without writing code.
+
+With Custom Commands, you can:
+- Create interactive Discord commands for your community
+- Fetch and update Roblox Datastore entries
+- Look up Roblox users by ID or username
+- Send formatted messages to Discord channels
+- Publish messages to Roblox games
+- Perform simple calculations and string manipulations
+
+## Key Concepts
+
+### Workflows
+A workflow is the complete sequence of operations that make up your custom command. When a user triggers your command in Discord, the workflow executes from start to finish.
+
+### Nodes
+Nodes are the building blocks of your workflows. Each node represents a specific action, such as fetching data from Roblox or sending a message to Discord.
+
+### Connections
+Connections determine the flow between nodes, indicating the sequence of operations and how data travels through your workflow.
+
+### Inputs and Outputs
+- **Inputs**: Values that a node requires to perform its function
+- **Outputs**: Values that a node produces after its operation, which can be passed to subsequent nodes
+
+### Output Paths
+Nodes can have different output paths depending on their operation result:
+- **Success**: Followed when an operation completes successfully
+- **Failure**: Followed when an operation fails
+- **Next**: Standard path for nodes that don't have success/failure outcomes
+
+## Getting Started
+
+### Accessing the Custom Commands Builder
+
+1. Navigate to the Custom Commands section in your dashboard
+2. Click "+" to start building a workflow
+3. You'll be presented with a canvas where you can begin adding nodes
+
+### Interface Overview
+
+- **Canvas**: The main area where you place and connect nodes
+- **Node Library**: A sidebar containing all available node types
+- **Properties Panel**: Appears when you select a node, allowing you to configure its parameters
+
+## Node Types
+
+### Basic Nodes
+
+#### Start
+- **Description**: Entry point for your command
+- **Inputs**: Parameters from the Discord slash command
+- **Outputs**: Passes inputs to the next node
+
+#### SendMessage
+- **Description**: Sends a message to a Discord channel
+- **Inputs**: 
+  - `message`: Content of the message (supports templates like `{username}`)
+  - `channel`: Discord channel ID to send the message to
+- **Outputs**: None
+
+#### JoinString
+- **Description**: Combines multiple string inputs into a single string
+- **Inputs**: Multiple string values to join
+- **Outputs**: Single combined string
+
+#### Add
+- **Description**: Adds numeric values together
+- **Inputs**: Multiple numeric values to sum
+- **Outputs**: Sum of all input values
+
+### Roblox Nodes
+
+#### GetUsernameFromId
+- **Description**: Converts a Roblox user ID to username
+- **Inputs**: Roblox user ID
+- **Outputs**: Corresponding Roblox username
+
+#### GetIdFromUsername
+- **Description**: Converts a Roblox username to user ID
+- **Inputs**: Roblox username
+- **Outputs**: Corresponding Roblox user ID
+
+#### GetRoWifiUser
+- **Description**: Retrieves linked Discord and Roblox accounts
+- **Inputs**: User ID to look up
+- **Outputs**: 
+  - `discord_id`: Discord user ID
+  - `roblox_id`: Linked Roblox user ID
+
+### Datastore Nodes
+
+#### GetDatastoreEntry
+- **Description**: Retrieves data from a Roblox Datastore
+- **Inputs**: 
+  - `universe_id`: Roblox universe/game ID
+  - `datastore_id`: Name of the datastore
+  - `entry_id`: Key of the entry to retrieve
+- **Outputs**: Values from the datastore entry (accessed using dot notation)
+
+#### UpdateDatastoreEntry
+- **Description**: Updates values in a Roblox Datastore entry
+- **Inputs**: 
+  - `universe_id`: Roblox universe/game ID
+  - `datastore_id`: Name of the datastore
+  - `entry_id`: Key of the entry to update
+  - Custom inputs for values to update (using dot notation)
+- **Outputs**: Updated values from the datastore entry
+
+#### PublishUniverseMessage
+- **Description**: Sends a message to a Roblox game via MessagingService
+- **Inputs**: 
+  - `universe_id`: Target Roblox universe/game ID
+  - `topic`: Message topic/channel
+  - `message`: Content to send
+- **Outputs**: None
+
+## Creating Your First Command
+
+### Example: Username Lookup Command
+
+Let's create a simple command that looks up a Roblox username from an ID and sends the result as a Discord message:
+
+1. **Start Node**
+   - This node is always by default
+   - This will be the entry point for your command
+   - Configure it to accept a parameter called "roblox_id"
+
+2. **Add a GetUsernameFromId Node**
+   - Connect it to the "Next" output of the Start node
+   - Set its input to use the "roblox_id" from the Start node
+
+3. **Add Two SendMessage Nodes**
+   - Connect one to the "Success" output of the GetUsernameFromId node
+   - Connect another to the "Failure" output of the GetUsernameFromId node
+   
+4. **Configure the Success Message**
+   - Set the message content to: "The username for ID \{roblox_id\} is \{username\}"
+   - The \{username\} template will be replaced with the output from the GetUsernameFromId node
+
+5. **Configure the Failure Message**
+   - Set the message content to: "Could not find a user with ID \{roblox_id\}"
+
+6. **Save and Publish**
+   - Give your command a descriptive name like "robloxuser"
+   - Add a description explaining how to use it
+   - It will immediately be available in your server.
+
+## Working with Roblox Integration
+
+### Datastores
+
+The Datastore nodes allow you to read and write data to your Roblox game's Datastores:
+
+#### Reading from Datastores
+
+```
+Start → GetDatastoreEntry → SendMessage
+```
+
+Configure the GetDatastoreEntry node with:
+- Universe ID of your Roblox game
+- Datastore name
+- Entry key
+
+Outputs from nested JSON values can be accessed using dot notation. For example, if your datastore entry contains:
+
+```json
+{
+  "stats": {
+    "coins": 500,
+    "level": 10
+  }
+}
+```
+
+You can access `stats.coins` as an output to get the value `500`.
+
+#### Writing to Datastores
+
+```
+Start → UpdateDatastoreEntry → SendMessage
+```
+
+Configure with the same Universe ID, datastore name, and entry key, plus:
+- Additional inputs with dot notation paths for values you want to update
+- For example, an input named `stats.coins` with value `1000` will update just that field
+
+### Messaging Service
+
+The PublishUniverseMessage node lets you send messages directly to your Roblox game:
+
+```
+Start → PublishUniverseMessage
+```
+
+Configure with:
+- Universe ID of your game
+- Topic name (must match what your game is subscribed to)
+- Message content (can be JSON or plain text)
+
+Then in your Roblox game, use MessagingService to receive these messages.
+
+## Advanced Workflow Features
+
+### Template Variables
+
+SendMessage nodes support template variables using the `{variable_name}` syntax:
+
+- Variables are replaced with values from inputs or previous node outputs
+- Example: "Hello \{username\}, you have \{stats.coins\} coins"
+
+### Combining Nodes for Complex Logic
+
+Create advanced commands by chaining multiple nodes:
+
+1. **User Information Command**:
+   ```
+   Start → GetRoWifiUser → GetUsernameFromId → SendMessage
+   ```
+
+2. **Datastore Update and Notification**:
+   ```
+   Start → UpdateDatastoreEntry → PublishUniverseMessage → SendMessage
+   ```
+
+3. **Calculation and Reporting**:
+   ```
+   Start → GetDatastoreEntry → Add → UpdateDatastoreEntry → SendMessage
+   ```
+
+## Troubleshooting
+
+### Common Issues
+
+1. **Node Connection Errors**
+   - Ensure all required node connections are made
+   - Check that "Success" and "Failure" paths are handled
+
+2. **Datastore Access Issues**
+   - Verify universe ID is correct
+   - Confirm API key has appropriate scopes and permissions
+   - Check that datastore and entry exist
+
+3. **Message Template Errors**
+   - Ensure template variables match exact output names
+   - Templates are case-sensitive
+
+4. **Type Mismatches**
+   - Numeric operations require number inputs
+   - String operations require string inputs
+
+## Best Practices
+
+1. **Keep Workflows Focused**
+   - Each command should serve a specific purpose
+   - Break complex tasks into multiple commands when appropriate
+
+2. **Handle Errors Gracefully**
+   - Always connect both Success and Failure paths
+   - Provide clear error messages to users
+
+3. **Use Descriptive Names**
+   - Name commands clearly to indicate their function
+   - Add comments to complex sections of your workflow
+
+## FAQ
+
+### How many nodes can I include in a single command?
+While there's no hard limit, we recommend keeping commands focused and under 20 nodes for performance and maintainability.
+
+### Can I use variables from Discord in my commands?
+Yes, the Start node automatically provides access to information about the command invoker, such as their username and ID.
+
+### How do I update an existing command?
+Open the command in edit mode, make your changes, and publish a new version. The slash command will automatically use the updated workflow.
+
+### Can I test my command before publishing it?
+Yes, use the "Test" button to simulate execution with sample inputs and see the result of each node.
+
+### How do I handle permissions for my commands?
+Discord's slash command permissions system can restrict who can use your commands. Additionally, you can add permission checks within your workflow.
+
+### Can I use these commands with multiple Roblox games?
+Yes, simply use different universe IDs in the appropriate nodes to interact with different games.
+
+## Limitations
+
+1. For Datastore nodes, root level entries are not supported.
+2. For the whole workflow, branching is not supported.
+3. This is a pre-alpha version, expect bugs.
