@@ -44,7 +44,7 @@ export default function RootLayout({
                 <div>
                   <h4 className="text-white font-semibold mb-4">Legal</h4>
                   <ul className="space-y-2">
-                    <li><Link href="#" className="text-gray-400 hover:text-blue-400 transition-colors">Terms of Service</Link></li>
+                    <li><Link href="/docs/tos" className="text-gray-400 hover:text-blue-400 transition-colors">Terms of Service</Link></li>
                     <li><Link href="https://www.iubenda.com/privacy-policy/39859431/full-legal" className="text-gray-400 hover:text-blue-400 transition-colors">Privacy Policy</Link></li>
                     <li><Link href="https://www.iubenda.com/privacy-policy/39859431/cookie-policy" className="text-gray-400 hover:text-blue-400 transition-colors">Cookie Policy</Link></li>
                   </ul>
